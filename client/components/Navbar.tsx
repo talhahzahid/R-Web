@@ -38,7 +38,7 @@ export default function Navbar() {
                             <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-100 shadow-lg py-2 rounded z-50">
                                 <li>
                                     <Link
-                                        href="/services/specialized-techniques"
+                                        href="#"
                                         className="block px-4 py-2 text-sm text-[#4A4A4A] hover:bg-[#FBF9F4] hover:text-black"
                                     >
                                         Specialized Techniques
@@ -46,7 +46,7 @@ export default function Navbar() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/services/custom-printing"
+                                        href="#"
                                         className="block px-4 py-2 text-sm text-[#4A4A4A] hover:bg-[#FBF9F4] hover:text-black"
                                     >
                                         Custom Printing
@@ -67,7 +67,7 @@ export default function Navbar() {
 
                     <li>
                         <Link
-                            href="/inquiry"
+                            href="#"
                             className="hover:text-black transition-colors"
                         >
                             Inquiry
@@ -127,7 +127,7 @@ export default function Navbar() {
                                 <ul className="mt-2 pl-4 border-l-2 border-[#C5A880] space-y-3 py-2 text-sm text-gray-600">
                                     <li>
                                         <Link
-                                            href="/services/specialized-techniques"
+                                            href="#"
                                             className="block hover:text-black"
                                             onClick={() => setIsOpen(false)}
                                         >
@@ -136,7 +136,7 @@ export default function Navbar() {
                                     </li>
                                     <li>
                                         <Link
-                                            href="/services/custom-printing"
+                                            href="#"
                                             className="block hover:text-black"
                                             onClick={() => setIsOpen(false)}
                                         >
@@ -159,7 +159,7 @@ export default function Navbar() {
 
                         <li>
                             <Link
-                                href="/inquiry"
+                                href="#"
                                 className="block py-1 hover:text-black"
                                 onClick={() => setIsOpen(false)}
                             >
@@ -169,7 +169,7 @@ export default function Navbar() {
                     </ul>
 
                     <Link
-                        href="/request-quote"
+                        href="#"
                         className="bg-[#032214] text-white text-sm font-bold tracking-wider uppercase py-3 rounded-sm text-center block w-full"
                         onClick={() => setIsOpen(false)}
                     >
