@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import React, { useState } from "react";
+import Link from "next/link";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +16,15 @@ export default function Navbar() {
                 Heritage Press
             </div>
 
-            {/* Desktop Navigation (Hidden on Mobile) */}
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
                 <ul className="flex items-center space-x-6 text-sm font-medium text-[#4A4A4A]">
-                    <li><a href="#" className="hover:text-black transition-colors">Heritage</a></li>
+                    <li>
+                        <Link href="/" className="hover:text-black transition-colors">
+                            Heritage
+                        </Link>
+                    </li>
+
                     <li className="relative">
                         <button
                             onClick={() => setServicesOpen(!servicesOpen)}
@@ -30,21 +36,54 @@ export default function Navbar() {
 
                         {servicesOpen && (
                             <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-100 shadow-lg py-2 rounded z-50">
-                                <li><a href="#" className="block px-4 py-2 text-sm text-[#4A4A4A] hover:bg-[#FBF9F4] hover:text-black">Specialized Techniques</a></li>
-                                <li><a href="#" className="block px-4 py-2 text-sm text-[#4A4A4A] hover:bg-[#FBF9F4] hover:text-black">Custom Printing</a></li>
+                                <li>
+                                    <Link
+                                        href="/services/specialized-techniques"
+                                        className="block px-4 py-2 text-sm text-[#4A4A4A] hover:bg-[#FBF9F4] hover:text-black"
+                                    >
+                                        Specialized Techniques
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/services/custom-printing"
+                                        className="block px-4 py-2 text-sm text-[#4A4A4A] hover:bg-[#FBF9F4] hover:text-black"
+                                    >
+                                        Custom Printing
+                                    </Link>
+                                </li>
                             </ul>
                         )}
                     </li>
-                    <li><a href="#" className="hover:text-black transition-colors">Gallery</a></li>
-                    <li><a href="#" className="hover:text-black transition-colors">Inquiry</a></li>
+
+                    <li>
+                        <Link
+                            href="/gallery"
+                            className="hover:text-black transition-colors"
+                        >
+                            Gallery
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link
+                            href="/inquiry"
+                            className="hover:text-black transition-colors"
+                        >
+                            Inquiry
+                        </Link>
+                    </li>
                 </ul>
 
-                <a href="#" className="bg-[#032214] text-white text-xs font-bold tracking-wider uppercase px-5 py-2.5 rounded-sm hover:bg-opacity-90 transition-all">
+                <Link
+                    href="/request-quote"
+                    className="bg-[#032214] text-white text-xs font-bold tracking-wider uppercase px-5 py-2.5 rounded-sm hover:bg-opacity-90 transition-all"
+                >
                     Request Quote
-                </a>
+                </Link>
             </div>
 
-            {/* Mobile Hamburger Button (Always visible on mobile/tablet) */}
+            {/* Mobile Hamburger Button */}
             <div className="flex md:hidden items-center relative z-50">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
@@ -60,7 +99,15 @@ export default function Navbar() {
             {isOpen && (
                 <div className="absolute top-full left-0 right-0 bg-[#FBF9F4] border-b border-gray-200 p-6 shadow-xl flex flex-col space-y-6 md:hidden z-40 pointer-events-auto">
                     <ul className="flex flex-col space-y-4 text-base font-medium text-[#4A4A4A]">
-                        <li><a href="#" className="block py-1 hover:text-black">Heritage</a></li>
+                        <li>
+                            <Link
+                                href="/"
+                                className="block py-1 hover:text-black"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Heritage
+                            </Link>
+                        </li>
 
                         <li>
                             <button
@@ -69,24 +116,65 @@ export default function Navbar() {
                                 type="button"
                             >
                                 <span>Services</span>
-                                <ChevronDown size={16} className={`transform transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                                <ChevronDown
+                                    size={16}
+                                    className={`transform transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
+                                        }`}
+                                />
                             </button>
 
                             {servicesOpen && (
                                 <ul className="mt-2 pl-4 border-l-2 border-[#C5A880] space-y-3 py-2 text-sm text-gray-600">
-                                    <li><a href="#" className="block hover:text-black">Specialized Techniques</a></li>
-                                    <li><a href="#" className="block hover:text-black">Custom Printing</a></li>
+                                    <li>
+                                        <Link
+                                            href="/services/specialized-techniques"
+                                            className="block hover:text-black"
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            Specialized Techniques
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href="/services/custom-printing"
+                                            className="block hover:text-black"
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            Custom Printing
+                                        </Link>
+                                    </li>
                                 </ul>
                             )}
                         </li>
 
-                        <li><a href="#" className="block py-1 hover:text-black">Gallery</a></li>
-                        <li><a href="#" className="block py-1 hover:text-black">Inquiry</a></li>
+                        <li>
+                            <Link
+                                href="/gallery"
+                                className="block py-1 hover:text-black"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Gallery
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link
+                                href="/inquiry"
+                                className="block py-1 hover:text-black"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Inquiry
+                            </Link>
+                        </li>
                     </ul>
 
-                    <a href="#" className="bg-[#032214] text-white text-sm font-bold tracking-wider uppercase py-3 rounded-sm text-center block w-full">
+                    <Link
+                        href="/request-quote"
+                        className="bg-[#032214] text-white text-sm font-bold tracking-wider uppercase py-3 rounded-sm text-center block w-full"
+                        onClick={() => setIsOpen(false)}
+                    >
                         Request Quote
-                    </a>
+                    </Link>
                 </div>
             )}
         </nav>
